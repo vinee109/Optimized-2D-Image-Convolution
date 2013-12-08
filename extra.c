@@ -1,6 +1,6 @@
 #include <emmintrin.h>
 #include <omp.h>
-#include <math.h>
+
 int conv2D(float* in, float* out, const int data_size_X, const int data_size_Y,
                     float* kernel, const int kernel_x, const int kernel_y)
 {
