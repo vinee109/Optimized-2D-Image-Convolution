@@ -7,8 +7,27 @@
 #define KERNX 7     //MUST BE ODD
 #define KERNY 7     //MUST BE ODD
 // If you want to modify the kernel, you can do it here! Don't worry about normalizing it, it will be done for you automatically.
+
+//Comment this section out if you don't want to use random kernels
+/*
 const int kernel_x = KERNX, kernel_y = KERNY;
 float kernel[KERNX*KERNY];
+*/
+
+// kernel for edge detection
+const int kernel_x = 3, kernel_y = 3;
+float kernel[] = { -1, -1, -1, 
+                   -1, 8, -1, 
+                   -1, -1, -1 };
+//int kernel_x = 3, kernel_y = 3;
+
+
+int minimum = 400, maximum = 1201, step = 200;
+
+
+//=============================================================================================
+//========================DO NOT MODIFY ANYTHING BEYOND THIS POINT=============================
+//=============================================================================================
 
 void generate_kernel(){
 	srand(time(NULL));
@@ -20,21 +39,6 @@ void generate_kernel(){
 			kernel[i]*=-1;
 	}
 }
-
-
-float kernel[] = { 0, -1, 0, 
-                   -1, 4, -1, 
-                   0, -1, 0 };
-//int kernel_x = 3, kernel_y = 3;
-
-
-int minimum = 400, maximum = 1201, step = 200;
-
-
-//=============================================================================================
-//========================DO NOT MODIFY ANYTHING BEYOND THIS POINT=============================
-//=============================================================================================
-
 // Reference function to be compared with your code.
 int reference(float* in, float* out, int data_size_X, int data_size_Y,
                     float* kernel, int kernel_x, int kernel_y);
@@ -56,7 +60,7 @@ void normalize( float * kernel ) {
 
 int main( int argc, char ** argv ) {
   // Normalize the kernel so that it produces correct colors.
-  generate_kernel();
+  //generate_kernel();   //Comment this out if you don't want to use randomly generated kernels
   printf("Kernel:\n");
   for (int y = 0; y < kernel_y; y++){
  	for ( int x = 0; x < kernel_x; x++){
