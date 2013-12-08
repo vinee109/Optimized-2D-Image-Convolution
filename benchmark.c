@@ -4,8 +4,8 @@
 #include <float.h>
 #include <time.h>
 #include <sys/time.h>
-#define KERNX 7
-#define KERNY 7
+#define KERNX 7     //MUST BE ODD
+#define KERNY 7     //MUST BE ODD
 // If you want to modify the kernel, you can do it here! Don't worry about normalizing it, it will be done for you automatically.
 const int kernel_x = KERNX, kernel_y = KERNY;
 float kernel[KERNX*KERNY];
