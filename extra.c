@@ -34,8 +34,8 @@ int conv2D(float* in, float* out, const int data_size_X, const int data_size_Y,
 		    }
 		}
         for(int x = kern_cent_X; x < (start - kern_cent_X)/16*16  + kern_cent_X; x+=16) {
-    		__m128 out_vec = _mm_loadu_ps(out+x+y*data_size_X);
-    		__m128 out_vec1 = _mm_loadu_ps(out+x+4+y*data_size_X);
+            __m128 out_vec = _mm_loadu_ps(out+x+y*data_size_X);
+     	    __m128 out_vec1 = _mm_loadu_ps(out+x+4+y*data_size_X);
             __m128 out_vec2 = _mm_loadu_ps(out+x+8+y*data_size_X);
             __m128 out_vec3 = _mm_loadu_ps(out+x+12+y*data_size_X);
             /*
