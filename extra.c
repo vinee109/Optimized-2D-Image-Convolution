@@ -52,7 +52,7 @@ int conv2D(float* in, float* out, const int data_size_X, const int data_size_Y,
 	                    __m128 ker_vec = _mm_load1_ps(kernel + (kern_cent_X-i) + (kern_cent_Y-j)*kernel_x);
 	    				
 	                    __m128 in_vec = _mm_loadu_ps(in+x+i+(y+j)*data_size_X);
-	    				__m128 in_vec1 = _mm_loadu_ps(in+x+4+i+(y+j)*data_size_X);
+	                    __m128 in_vec1 = _mm_loadu_ps(in+x+4+i+(y+j)*data_size_X);
 	                    __m128 in_vec2 = _mm_loadu_ps(in+x+8+i+(y+j)*data_size_X);
 	                    __m128 in_vec3 = _mm_loadu_ps(in+x+12+i+(y+j)*data_size_X);
 	                    /*
